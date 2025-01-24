@@ -11,7 +11,7 @@
     <meta name="author" content="{{ config('app.name') }}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo.jpg') }}">
 
     <title>{{ config('app.name') }} Dashboard</title>
 

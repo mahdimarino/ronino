@@ -1,19 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('dashboard.layaout.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@section('content-title', 'Add GSM')
 
-<body>
-    <form action="{{ route('store') }}" method="POST">
+@section('content')
+
+<div class="mg-t-15">
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+    @endif
+    <form action="{{ route('gsm.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <input name="value" type="name">
-        <button type="submit">add Gsm</button>
-    </form>
-</body>
 
-</html>
+        <div class="row">
+            <div class="form-group col-7">
+                <label>GSM Value <span class="tx-danger">*</span></label>
+                <div class="input-group">
+                    <input type="text" name="value" class="form-control" required>
+                </div>
+
+            </div>
+            <div class=" col-6">
+                <div class="form-group col-12">
+                    <button type="submit" class="btn btn-brand pd-x-20" name="action" value="book">Create</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+@endsection

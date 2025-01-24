@@ -1,6 +1,6 @@
 @extends('dashboard.layaout.app')
 
-@section('content-title', 'Add New Color')
+@section('content-title', 'Add Size')
 
 @section('content')
 
@@ -10,12 +10,12 @@
         {{ session('message') }}
     </div>
     @endif
-    <form action="{{ route('color.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('size.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
             <div class="form-group col-7">
-                <label>Color Name <span class="tx-danger">*</span></label>
+                <label>Size Name <span class="tx-danger">*</span></label>
                 <div class="input-group">
                     <input type="text" name="name" class="form-control" required>
                 </div>

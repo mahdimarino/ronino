@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -10,8 +11,13 @@ class CategoriesController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    { {
+            // Fetch all blogs ordered by creation date, latest first
+            $categories = Category::orderBy('created_at', 'desc')->get();
+
+            // Pass the blogs to the view
+            return view('dashboard.categories.index', compact('categories'));
+        }
     }
 
     /**
@@ -35,7 +41,7 @@ class CategoriesController extends Controller
             $category = new \App\Models\Category();
             $category->name = $validatedData['name'];
             $category->save();
-            return redirect()->route('dashboard.blogs.blog-form')->with('success', 'Category added successfully!');
+            return redirect()->route('dashboard.categories.index')->with('success', 'Category added successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed to save the color. Please try again.');
         }
@@ -70,6 +76,11 @@ class CategoriesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        if ($category) {
+            $category->delete();
+        }
+
+        return back();
     }
 }

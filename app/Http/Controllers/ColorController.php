@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Color;
 use Illuminate\Http\Request;
 
 class ColorController extends Controller
@@ -11,7 +12,11 @@ class ColorController extends Controller
      */
     public function index()
     {
-        //
+        // Fetch all blogs ordered by creation date, latest first
+        $colors = Color::orderBy('created_at', 'desc')->get();
+
+        // Pass the blogs to the view
+        return view('dashboard.colors.index', compact('colors'));
     }
 
     /**
@@ -36,7 +41,7 @@ class ColorController extends Controller
             $color = new \App\Models\Color();
             $color->name = $validatedData['name'];
             $color->save(); 
-            return redirect()->route('dashboard.blogs.blog-form')->with('success', 'Color added successfully!');
+            return redirect()->route('dashboard.colors.index')->with('success', 'Color added successfully!');
         } catch (\Exception $e) {           
             return redirect()->back()->with('error', 'Failed to save the color. Please try again.');
         }
@@ -71,6 +76,11 @@ class ColorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $color = Color::findOrFail($id);
+        if ($color) {
+            $color->delete();
+        }
+
+        return back();
     }
 }

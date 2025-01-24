@@ -10,14 +10,24 @@
     </div>
     <div id="dpSidebarBody" class="sidebar-body">
         <ul class="nav nav-sidebar">
-            <li class="nav-label"><label class="content-label">Dashboard</label></li>
+            <li class="nav-label"><label class="content-label">PRODUCTS</label></li>
             <li class="nav-item">
-                <a href="{{ route('dashboard.blogs.blog-form') }}" @class(['nav-link', 'active'=>
+                <a href="{{ route('dashboard.products.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'blogs.') && (Route::currentRouteName()
-                    !== "blogs.create"))])>
-                    <i class="fa fa-pencil-alt"></i> Create Blog
+                    !== "products.create"))])>
+                    <i class="fa fa-pencil-alt"></i> Add Product
                 </a>
             </li>
+          
+            <li class="nav-item">
+                <a href="{{ route('dashboard.blogs.list') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.index')
+                    ])>
+                    <i class="fa fa-list"></i> Blog list
+                </a>              
+            </li>
+            {{-- //////////////////////////////////////////////////////////////////////// --}}
+            <li class="nav-label"><label class="content-label">COLORS</label></li>
             <li class="nav-item">
                 <a href="{{ route('dashboard.colors.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'colors.') && (Route::currentRouteName()
@@ -26,17 +36,79 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('dashboard.blogs.list') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
-                    'dashboard.index')
+                <a href="{{ route('dashboard.colors.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.colors.index')
                     ])>
-                    <i class="fa fa-list"></i> Blog list
-                </a>
-                <a href="" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
-                    'dashboard.index')
-                    ])>
-                    <i class="fa fa-list"></i> Blog Categories
+                    <i class="fa fa-list"></i> Colors list
                 </a>
             </li>
+            {{-- //////////////////////////////////////////////////////////////////////// --}}
+            <li class="nav-label"><label class="content-label">PARTWEARS</label></li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.partwears.create') }}" @class(['nav-link', 'active'=>
+                    (Str::startsWith(Route::currentRouteName(), 'partwears.') && (Route::currentRouteName()
+                    !== "partwears.create"))])>
+                    <i class="fa fa-pencil-alt"></i> Add Partwear
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.partwears.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.partwears.index')
+                    ])>
+                    <i class="fa fa-list"></i> Partwear list
+                </a>
+            </li>
+            {{-- //////////////////////////////////////////////////////////////////////// --}}
+            <li class="nav-label"><label class="content-label">CATEGORIES</label></li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.categories.create') }}" @class(['nav-link', 'active'=>
+                    (Str::startsWith(Route::currentRouteName(), 'categories.') && (Route::currentRouteName()
+                    !== "categories.create"))])>
+                    <i class="fa fa-pencil-alt"></i> Add Category
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.categories.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.categories.index')
+                    ])>
+                    <i class="fa fa-list"></i> Category list
+                </a>
+            </li>
+
+            {{-- //////////////////////////////////////////////////////////////////////// --}}
+            <li class="nav-label"><label class="content-label">GSM</label></li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.gsms.create') }}" @class(['nav-link', 'active'=>
+                    (Str::startsWith(Route::currentRouteName(), 'gsms.') && (Route::currentRouteName()
+                    !== "gsms.create"))])>
+                    <i class="fa fa-pencil-alt"></i> Add GSM
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.gsms.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.gsms.index')
+                    ])>
+                    <i class="fa fa-list"></i> GSM list
+                </a>
+            </li>
+            {{-- //////////////////////////////////////////////////////////////////////// --}}
+            <li class="nav-label"><label class="content-label">SIZE</label></li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.sizes.create') }}" @class(['nav-link', 'active'=>
+                    (Str::startsWith(Route::currentRouteName(), 'sizes.') && (Route::currentRouteName()
+                    !== "sizes.create"))])>
+                    <i class="fa fa-pencil-alt"></i> Add Size
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.sizes.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.sizes.index')
+                    ])>
+                    <i class="fa fa-list"></i> Sizes list
+                </a>
+            </li>
+            
         </ul>
+        
     </div>
 </div>

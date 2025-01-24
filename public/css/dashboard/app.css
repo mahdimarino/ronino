@@ -1931,7 +1931,7 @@ pre code {
 }
 
 .table-sideborder td:first-child {
-  border-left: 4px solid #00d4c8;
+  border-left: 4px solid wheat;
   transition: border-left-width 100ms linear;
 }
 
@@ -11340,14 +11340,14 @@ a.badge-danger-light:focus {
 }
 
 .btn-brand {
-  background-color: #00d4c8;
+  background-color: wheat;
   border-color: transparent;
-  color: #fff;
+  color: black;
 }
 
 .btn-brand:hover,
 .btn-brand:focus {
-  background-color: #00D4FF;
+  background-color: grey;
   border-color: transparent;
   color: #fff;
 }
@@ -17054,7 +17054,7 @@ body {
   top: 0;
   left: -230px;
   z-index: 20;
-  background-color: #fff;
+  background-color: black;
 }
 
 @media (min-width: 992px) {
@@ -17108,7 +17108,7 @@ body {
 
 .sidebar-logo .brand-color {
   color: #00d4c8 !important;
-  background: -webkit-linear-gradient(#00d4c8, #00d4c8);
+  background: wheat;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -17203,7 +17203,7 @@ body {
 .nav-sidebar .nav-link {
   position: relative;
   padding: 7px 8px;
-  color: #373857;
+  color: wheat;
   display: flex;
   align-items: center;
   font-size: 0.875rem;
@@ -17243,7 +17243,7 @@ body {
 }
 
 .nav-sidebar .nav-link.active {
-  background-color: #00d4c8;
+  background-color: grey;
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -17504,7 +17504,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   letter-spacing: .5px;
   text-transform: uppercase;
-  color: rgba(55, 56, 87, 0.6);
+  color: wheat;
   display: block;
   margin-bottom: 15px;
 }
