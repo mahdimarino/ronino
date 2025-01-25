@@ -52,6 +52,10 @@ Route::delete('dashboard/colors/{id}', [ColorController::class, 'destroy'])->nam
 
 Route::get('/dashboard/products/create', [ProductController::class, 'create'])->name('dashboard.products.create')->middleware('auth');
 Route::post('/dashboard/products', [ProductController::class, 'store'])->name('product.store');
+Route::get('/dashboard/products/index', [ProductController::class, 'index'])->name('dashboard.products.index')->middleware('auth');
+Route::delete('dashboard/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');
+Route::get('/dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('dashboard.products.edit')->middleware('auth');
+Route::put('/dashboard/products/{id}', [ProductController::class, 'update'])->name('dashboard.products.update')->middleware('auth');
 
 //partwears   //////////
 
@@ -66,6 +70,7 @@ Route::get('/dashboard/categories/create', [CategoriesController::class, 'create
 Route::post('/dashboard/categories', [CategoriesController::class, 'store'])->name('categories.store')->middleware('auth');
 Route::get('/dashboard/categories/index', [CategoriesController::class, 'index'])->name('dashboard.categories.index')->middleware('auth');
 Route::delete('dashboard/categories/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy')->middleware('auth');
+Route::get('dashboard/categories/{id}', [CategoriesController::class, 'show'])->name('categories.show');
 
 ////Gsms /////////////
 

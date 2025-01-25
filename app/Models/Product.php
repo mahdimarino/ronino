@@ -7,26 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'product_code', 'category_id', 'color_id', 'partwear_id', 'quantity'];
+    protected $fillable = ['title', 'product_code', 'category_id'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function color()
+    public function colors()
     {
-        return $this->belongsTo(Color::class);
-    }
-
-    public function partwear()
-    {
-        return $this->belongsTo(Partwear::class);
+        return $this->belongsToMany(Color::class, 'product_details')->withPivot(['size_id', 'quantity','price']);
     }
 
     public function sizes()
     {
-        return $this->belongsToMany(Size::class, 'product_size');
+        return $this->belongsToMany(Size::class, 'product_details')->withPivot(['color_id', 'quantity','price']);
     }
 
     public function gsms()

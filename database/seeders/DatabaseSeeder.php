@@ -28,12 +28,23 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'), // Hash the password
         ]);
 
-        Size::factory()->create([
-            'name' => 'xl',           
-        ], [
-            'name' => 'xxl',
-        ]);
+        // Size::factory()->create([
+        //     'name' => 'xl',           
+        // ], [
+        //     'name' => 'xxl',
+        // ]);
+    Category::create(['name' => 'T-Shirts']);
+    Category::create(['name' => 'Hoodies']);
+    Category::create(['name' => 'Accessories']);
+
+    Color::create(['name' => 'Red']);
+    Color::create(['name' => 'Blue']);
+    Color::create(['name' => 'Green']);
        
-    
+    Size::create(['name' => 'Small']);
+    Size::create(['name' => 'Medium']);
+    Size::create(['name' => 'Large']);
+    Size::create(['name' => 'X-Large']);
+    Size::create(['name' => 'XX-Large']);
     }
 }

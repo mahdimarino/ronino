@@ -16,9 +16,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('product_code')->unique();
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->foreignId('color_id')->constrained()->onDelete('cascade');
-            $table->foreignId('partwear_id')->constrained()->onDelete('cascade');
-            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }

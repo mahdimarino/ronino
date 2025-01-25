@@ -22,9 +22,9 @@ Category List
                         $category->id }}</a></td>
                 <td>{{ $category->name}}</td>
                 <td>
-                    <a href="" class="btn btn-sm btn-primary">
-                        <i class="fa fa-eye"></i> View
-                    </a>
+                   <a href="{{ route('categories.show', ['id' => $category->id]) }}" class="btn btn-sm btn-primary">
+                    <i class="fa fa-eye"></i> View
+                </a>
                     {{-- <a href="{{ route('dashboard.blogs.edit', ['blogId' => $blog->id ])}}"
                         class="btn btn-sm btn-success">
                         <i class="fa fa-pen"></i> Edit

@@ -52,7 +52,11 @@ class CategoriesController extends Controller
      */
     public function show(string $id)
     {
-        //
+         // Find the category by ID
+    $category = Category::with('products')->findOrFail($id);
+
+    // Pass the category and its products to the view
+    return view('dashboard.categories.show', compact('category'));
     }
 
     /**

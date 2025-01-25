@@ -20,11 +20,11 @@
             </li>
           
             <li class="nav-item">
-                <a href="{{ route('dashboard.blogs.list') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
-                    'dashboard.index')
+                <a href="{{ route('dashboard.products.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.products.index')
                     ])>
-                    <i class="fa fa-list"></i> Blog list
-                </a>              
+                    <i class="fa fa-list"></i> PRoduct list
+                </a>
             </li>
             {{-- //////////////////////////////////////////////////////////////////////// --}}
             <li class="nav-label"><label class="content-label">COLORS</label></li>

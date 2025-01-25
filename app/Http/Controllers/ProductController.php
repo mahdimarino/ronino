@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Color;
+use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -9,7 +13,14 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {}
+    public function index()
+    {
+        // Fetch all blogs ordered by creation date, latest first
+        $products = Product::orderBy('created_at', 'desc')->get();
+
+        // Pass the blogs to the view
+        return view('dashboard.products.index', compact('products'));
+    }
 
 
     /**
@@ -33,42 +44,28 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-        // Validate incoming request data
+        // Validate the form data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'product_code' => 'required|string|max:255',
-            'color_id' => 'required|exists:colors,id',
+            'product_code' => 'required|string|max:255|unique:products,product_code',
             'category_id' => 'required|exists:categories,id',
-            'partwear_id' => 'required|exists:partwears,id',
-            'quantity' => 'required|integer|min:1',
-            'gsm_id' => 'nullable|array',
-            'size_id' => 'nullable|array',
+            // 'color_id' => 'required|exists:colors,id',
+            // 'quantity'=> 'required|integer'
+
 
         ]);
-
         // Create the product
-        $product = new \App\Models\Product();
-        $product->title = $validatedData['title'];
-        $product->product_code = $validatedData['product_code'];
-        $product->color_id = $validatedData['color_id'];
-        $product->category_id = $validatedData['category_id'];
-        $product->partwear_id = $validatedData['partwear_id'];
-        $product->quantity = $validatedData['quantity'];
-        $product->save();
+        $product = Product::create([
+            'title' => $validatedData['title'],
+            'product_code' => $validatedData['product_code'],
+            'category_id' => $validatedData['category_id'],
+        ]);
 
-        // Attach many-to-many relationships for sizes and gsms
-        if (!empty($validatedData['gsm_id'])) {
-            $product->gsms()->attach($validatedData['gsm_id']);
-        }
-
-        if (!empty($validatedData['size_id'])) {
-            $product->sizes()->attach($validatedData['size_id']);
-        }
-
+        // Attach the color to the product with the quantity
+        // $product->colors()->attach($validatedData['color_id'], ['quantity' => $validatedData['quantity']]);
 
         // Redirect to the products list or another page with a success message
-        return redirect()->route('dashboard.blogs.blog-form')->with('success', 'Product created successfully!');
+        return redirect()->route('dashboard.products.index')->with('success', 'Product created successfully!');
     }
 
 
@@ -86,6 +83,12 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         //
+        $product = Product::findOrFail($id);
+        $categories = Category::all();
+        $colors = Color::all();
+        $sizes = Size::all();
+
+        return view('dashboard.products.edit', compact('product', 'categories', 'colors', 'sizes'));
     }
 
     /**
@@ -93,7 +96,32 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'product_code' => 'required|string|max:255|unique:products,product_code,' . $id,
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->update([
+            'title' => $validatedData['title'],
+            'product_code' => $validatedData['product_code'],
+            'category_id' => $validatedData['category_id'],
+        ]);
+
+        $product->colors()->detach();
+
+        foreach ($request->color as $index => $colorId) {
+            $product->colors()->attach($colorId, [
+                'size_id' => $request->size[$index],
+                'quantity' => $request->quantity[$index],
+                'price' => $request->price[$index],
+
+            ]);
+        }
+
+
+        return redirect()->route('dashboard.products.index')->with('success', 'Product updated successfully!');
     }
 
     /**
@@ -101,6 +129,11 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        if ($product) {
+            $product->delete();
+        }
+
+        return back();
     }
 }
