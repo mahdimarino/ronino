@@ -46,7 +46,7 @@ Products
                 
                 <td>{{ $product->title}}</td>
                 <td>{{ $product->product_code}}</td>
-                <td>{{ $product->gsm ? $product->gsm->id : 'N/A' }}</td>
+                <td>{{ $product->gsm ? $product->gsm->value : 'N/A' }}</td>
                 <td>{{ $product->category->name}}</td>
                 <td>
                     {{-- <a class="btn btn-sm btn-primary">

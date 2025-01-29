@@ -104,7 +104,7 @@ class ProductController extends Controller
         $colors = Color::all();
         $sizes = Size::all();
         $images = Image::all();
-        $gsms = Gsm::all();
+        $gsms = \App\Models\Gsm::all();
 
 
         return view('dashboard.products.edit', compact('product', 'categories', 'colors', 'sizes', 'images', 'gsms'));

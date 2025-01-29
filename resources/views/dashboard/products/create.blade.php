@@ -53,30 +53,6 @@
             <option value="{{ $gsm->id }}">{{ $gsm->value }}</option>
             @endforeach
         </select><br><br>
-        {{-- <label for="color_id">Choose a Part:</label>
-        <select name="partwear_id" id="partwear_id" required>
-            <option value="" disabled selected>Select a Part</option>
-            @foreach($partwears as $partwear)
-            <option value="{{ $partwear->id }}">{{ $partwear->name }}</option>
-            @endforeach
-        </select><br><br>
-        <label for="color_id">Choose a Gsm:</label>
-        <select name="gsm_id" id="gsm" required>
-            <option value="" disabled selected>Select a Gsm</option>
-            @foreach($gsms as $gsm)
-            <option value="{{ $gsm->id }}">{{ $gsm->value }}</option>
-            @endforeach
-        </select><br><br>
-        <label for="color_id">Choose a size:</label>
-        <select name="size_id" id="size" required>
-            <option value="" disabled selected>Select a size</option>
-            @foreach($sizes as $size)
-            <option value="{{ $size->id }}">{{ $size->name }}</option>
-            @endforeach
-        </select><br><br> --}}
-        {{-- <label>Quantity:</label>
-        <input type="text" name="quantity" id="quantity" required> --}}
-
         <div class=" col-6">
             <div class="form-group col-12">
                 <button type="submit" class="btn btn-brand pd-x-20" name="action" value="book">Create</button>

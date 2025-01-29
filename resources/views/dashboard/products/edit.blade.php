@@ -6,6 +6,16 @@ Products
 @endsection
 
 @section('content')
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <form action="{{ route('dashboard.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
@@ -42,8 +52,8 @@ Products
             $category->name }}</option>
         @endforeach
     </select><br><br>
-    <label for="category_id">Choose a Category:</label>
-    <select name="category_id" id="category_id" required>
+    <label for="gsm_id">Choose a sm:</label>
+    <select name="gsm_id" id="gsm_id" required>
         <option value="" disabled>Select a GSM</option>
         @foreach($gsms as $gsm)
         <option value="{{ $gsm->id }}" {{ $product->gsm_id == $gsm->id ? 'selected' : '' }}>{{
