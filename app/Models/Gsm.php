@@ -9,8 +9,13 @@ class Gsm extends Model
 {
     protected $fillable = ['value']; // Example: 180 GSM, 200 GSM
 
+    // public function products()
+    // {
+    //     return $this->belongsToMany(Product::class, 'product_gsm');
+    // }
+
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_gsm');
+        return $this->hasMany(Product::class);
     }
 }

@@ -6,7 +6,7 @@ Products
 @endsection
 
 @section('content')
-<form action="{{ route('dashboard.products.update', $product->id) }}" method="POST">
+<form action="{{ route('dashboard.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <label for="title">Product Title:</label>
@@ -15,12 +15,39 @@ Products
     <label for="product_code">Product Code:</label>
     <input type="text" name="product_code" id="product_code" value="{{ $product->product_code }}" required>
     <br><br>
+    <label>Existing Images:</label>
+    <div>
+        @foreach($product->images as $image)
+        <div style="display: inline-block; margin-right: 10px;">
+            <img src="{{ $image->url }}" alt="Product Image" width="100">
+            <br>
+            <input type="checkbox" name="delete_images[]" value="{{ $image->id }}"> Delete
+        </div>
+        @endforeach
+    </div>
+    <br><br>
+    
+    <!-- New Image Upload -->
+    <label for="images">Upload New Images:</label>
+    <input type="file" name="images[]" id="images" multiple accept="image/*">
+    <small class="form-text text-muted">
+        You can upload multiple images (JPEG, PNG, JPG, GIF, SVG) up to 2MB each.
+    </small>
+    <br><br>
     <label for="category_id">Choose a Category:</label>
     <select name="category_id" id="category_id" required>
         <option value="" disabled>Select a category</option>
         @foreach($categories as $category)
         <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>{{
             $category->name }}</option>
+        @endforeach
+    </select><br><br>
+    <label for="category_id">Choose a Category:</label>
+    <select name="category_id" id="category_id" required>
+        <option value="" disabled>Select a GSM</option>
+        @foreach($gsms as $gsm)
+        <option value="{{ $gsm->id }}" {{ $product->gsm_id == $gsm->id ? 'selected' : '' }}>{{
+            $gsm->value }}</option>
         @endforeach
     </select><br><br>
 

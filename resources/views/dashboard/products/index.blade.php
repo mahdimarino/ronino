@@ -22,8 +22,10 @@ Products
         <thead>
             <tr>
                 <th scope="col">Product Id</th>
+                <th scope="col">Image</th>
                 <th scope="col">Product Title</th>
                 <th scope="col">Product code</th>
+                <th scope="col">GSM</th>
                 <th scope="col">Category</th>
                 <th scope="col">Action</th>
             </tr>
@@ -33,16 +35,26 @@ Products
             <tr>
                 <td scope="row"><a href="">{{
                         $product->id }}</a></td>
+                <td>
+                    @if ($product->images->isNotEmpty())
+                   <a target="_blank" href="{{ $product->images->first()->url }}"> <img width="50" src="{{ $product->images->first()->url }}" alt="{{ $product->title }}"></a>
+                    @else
+                    <span>No Image</span>
+                    @endif
+                </td>
+                
+                
                 <td>{{ $product->title}}</td>
                 <td>{{ $product->product_code}}</td>
+                <td>{{ $product->gsm ? $product->gsm->id : 'N/A' }}</td>
                 <td>{{ $product->category->name}}</td>
                 <td>
-                    <a class="btn btn-sm btn-primary">
+                    {{-- <a class="btn btn-sm btn-primary">
                         <i class="fa fa-eye"></i> View
-                    </a>
+                    </a> --}}
                     <a href="{{ route('dashboard.products.edit', ['id' => $product->id ])}}"
                         class="btn btn-sm btn-success">
-                        <i class="fa fa-pen"></i> Edit
+                        <i class="fa fa-pen"></i> Details
                     </a>
 
                     <form style="display: inline-block" action="{{ route('product.destroy', ['id' => $product->id ])}}"

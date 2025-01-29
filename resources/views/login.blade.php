@@ -11,7 +11,7 @@
     <meta name="author" content="{{ config('app.name') }}">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo.jpg') }}">
 
     <title>{{ config('app.name') }} Login</title>
 
@@ -23,13 +23,13 @@
 <body>
 
     <div class="signin-panel">
-        <img src="{{ asset('assets/login-bg.svg') }}" alt="Login Background" class="login-bg img-fluid">
+        <img style="width: 50%" src="{{ asset('assets/money.jpg') }}" alt="Login Background" class="login-bg img-fluid">
 
         <div class="signin-sidebar">
             <div class="signin-sidebar-body">
                 <a class="sidebar-logo mg-b-40">
-                    <img src="{{ asset('assets/logo.png') }}" alt="DemandGine" class="img-fluid logo">
-                    {{-- <span>here<span class="brand-color">X</span>here</span> --}}
+                    {{-- <img src="{{ asset('assets/logo.png') }}" alt="DemandGine" class="img-fluid logo"> --}}
+                     <span><span class="brand-color">El Ronino</span></span> 
                 </a>
                 <h4 class="signin-title">Welcome back!</h4>
                 <h5 class="signin-subtitle">Please signin to continue.</h5>

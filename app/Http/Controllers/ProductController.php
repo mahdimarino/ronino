@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Color;
-use App\Models\Product;
+use App\Models\Gsm;
 use App\Models\Size;
+use App\Models\Color;
+use App\Models\Image;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -49,9 +52,10 @@ class ProductController extends Controller
             'title' => 'required|string|max:255',
             'product_code' => 'required|string|max:255|unique:products,product_code',
             'category_id' => 'required|exists:categories,id',
+            'gsm_id' => 'required|exists:gsms,id',
             // 'color_id' => 'required|exists:colors,id',
             // 'quantity'=> 'required|integer'
-
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
         // Create the product
@@ -59,8 +63,20 @@ class ProductController extends Controller
             'title' => $validatedData['title'],
             'product_code' => $validatedData['product_code'],
             'category_id' => $validatedData['category_id'],
+            'gsm_id' => $validatedData['gsm_id'],
         ]);
+        // Handle multiple image uploads
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Store the image in the storage/app/public/images directory
+                $path = $image->store('public/images');
 
+                // Create a new image record associated with the product
+                $product->images()->create([
+                    'image_path' => $path,
+                ]);
+            }
+        }
         // Attach the color to the product with the quantity
         // $product->colors()->attach($validatedData['color_id'], ['quantity' => $validatedData['quantity']]);
 
@@ -87,8 +103,11 @@ class ProductController extends Controller
         $categories = Category::all();
         $colors = Color::all();
         $sizes = Size::all();
+        $images = Image::all();
+        $gsms = Gsm::all();
 
-        return view('dashboard.products.edit', compact('product', 'categories', 'colors', 'sizes'));
+
+        return view('dashboard.products.edit', compact('product', 'categories', 'colors', 'sizes', 'images', 'gsms'));
     }
 
     /**
@@ -100,6 +119,11 @@ class ProductController extends Controller
             'title' => 'required|string|max:255',
             'product_code' => 'required|string|max:255|unique:products,product_code,' . $id,
             'category_id' => 'required|exists:categories,id',
+            'gsm_id' => 'required|exists:categories,id',
+
+            'delete_images' => 'nullable|array',
+            'delete_images.*' => 'exists:images,id',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $product = Product::findOrFail($id);
@@ -107,6 +131,7 @@ class ProductController extends Controller
             'title' => $validatedData['title'],
             'product_code' => $validatedData['product_code'],
             'category_id' => $validatedData['category_id'],
+            'gsm_id' => $validatedData['gsm_id'],
         ]);
 
         $product->colors()->detach();
@@ -118,6 +143,30 @@ class ProductController extends Controller
                 'price' => $request->price[$index],
 
             ]);
+        }
+
+        // Delete selected images
+        if (!empty($validatedData['delete_images'])) {
+            foreach ($validatedData['delete_images'] as $imageId) {
+                $image = Image::findOrFail($imageId);
+                // Delete the image file from storage
+                Storage::delete($image->image_path);
+                // Delete the image record from the database
+                $image->delete();
+            }
+        }
+
+        // Upload and associate new images
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Store the image in the storage/app/public/images directory
+                $path = $image->store('public/images');
+
+                // Create a new image record associated with the product
+                $product->images()->create([
+                    'image_path' => $path,
+                ]);
+            }
         }
 
 

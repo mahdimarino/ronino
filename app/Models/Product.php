@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'product_code', 'category_id'];
+    protected $fillable = ['title', 'product_code', 'category_id','gsm_id'];
 
     public function category()
     {
@@ -24,8 +24,12 @@ class Product extends Model
         return $this->belongsToMany(Size::class, 'product_details')->withPivot(['color_id', 'quantity','price']);
     }
 
-    public function gsms()
+    public function gsm()
     {
-        return $this->belongsToMany(Gsm::class, 'product_gsm');
+        return $this->belongsTo(Gsm::class);
+    }
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }
