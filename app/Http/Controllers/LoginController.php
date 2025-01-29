@@ -18,7 +18,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard/blogs/create');
+            return redirect()->intended('dashboard/products/index');
         }
 
         return back()->withErrors([
