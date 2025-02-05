@@ -52,7 +52,7 @@ Products
             $category->name }}</option>
         @endforeach
     </select><br><br>
-    <label for="gsm_id">Choose a sm:</label>
+    <label for="gsm_id">Choose a GSM:</label>
     <select name="gsm_id" id="gsm_id" required>
         <option value="" disabled>Select a GSM</option>
         @foreach($gsms as $gsm)

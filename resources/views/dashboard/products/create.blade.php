@@ -1,6 +1,6 @@
 @extends('dashboard.layaout.app')
 
-@section('content-title', 'Add Partwear')
+@section('content-title', 'Add Product')
 
 @section('content')
 
@@ -46,7 +46,7 @@
             <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </select><br><br>
-        <label for="gsm_id">Choose a category:</label>
+        <label for="gsm_id">Choose a GSM:</label>
         <select name="gsm_id" id="gsm_id" required>
             <option value="" disabled selected>Select a GSM</option>
             @foreach($gsms as $gsm)

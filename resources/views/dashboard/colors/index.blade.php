@@ -22,7 +22,8 @@ COLORS LIST
                 $color->id }}</a></td>
         <td>{{ $color->name}}</td>
         <td>
-            <a href="" class="btn btn-sm btn-primary">
+            
+                <a href="{{ route('colors.show', ['id' => $color->id]) }}" class="btn btn-sm btn-primary">
                 <i class="fa fa-eye"></i> View
             </a>
             {{-- <a href="{{ route('dashboard.blogs.edit', ['blogId' => $blog->id ])}}" class="btn btn-sm btn-success">

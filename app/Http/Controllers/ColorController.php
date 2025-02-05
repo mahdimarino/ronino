@@ -32,17 +32,17 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255', // Ensure the name is unique in the 'colors' table
         ]);
         try {
-            
+
             $color = new \App\Models\Color();
             $color->name = $validatedData['name'];
-            $color->save(); 
+            $color->save();
             return redirect()->route('dashboard.colors.index')->with('success', 'Color added successfully!');
-        } catch (\Exception $e) {           
+        } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed to save the color. Please try again.');
         }
     }
@@ -52,7 +52,15 @@ class ColorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Fetch the color with its related products
+        $color = Color::with('products')->findOrFail($id);
+        $products = $color->products;
+        // Or (when you don't have with('products'))
+        // $products = $color->products()->get();
+
+        // Pass the color to the view
+        return view('dashboard.colors.show', compact('color'));
+       // return view('dashboard.products.index', compact('products'));
     }
 
     /**

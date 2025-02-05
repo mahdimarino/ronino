@@ -23,7 +23,7 @@
                 <a href="{{ route('dashboard.products.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
                     'dashboard.products.index')
                     ])>
-                    <i class="fa fa-list"></i> PRoduct list
+                    <i class="fa fa-list"></i> Product list
                 </a>
             </li>
             {{-- //////////////////////////////////////////////////////////////////////// --}}
@@ -39,7 +39,7 @@
                 <a href="{{ route('dashboard.colors.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
                     'dashboard.colors.index')
                     ])>
-                    <i class="fa fa-list"></i> Colors list
+                    <i class="fa fa-list"></i> Color list
                 </a>
             </li>
             {{-- //////////////////////////////////////////////////////////////////////// --}}
@@ -104,7 +104,7 @@
                 <a href="{{ route('dashboard.sizes.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
                     'dashboard.sizes.index')
                     ])>
-                    <i class="fa fa-list"></i> Sizes list
+                    <i class="fa fa-list"></i> Size list
                 </a>
             </li>
             

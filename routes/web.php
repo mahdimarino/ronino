@@ -45,6 +45,8 @@ Route::get('/dashboard/colors/create', [ColorController::class, 'create'])->name
 Route::post('/dashboard/colors', [ColorController::class, 'store'])->name('color.store')->middleware('auth');
 Route::get('/dashboard/colors/index', [ColorController::class, 'index'])->name('dashboard.colors.index')->middleware('auth');
 Route::delete('dashboard/colors/{id}', [ColorController::class, 'destroy'])->name('color.destroy')->middleware('auth');
+Route::get('dashboard/colors/{id}', [ColorController::class, 'show'])->name('colors.show');
+
 
 
 
