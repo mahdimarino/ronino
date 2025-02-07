@@ -2,14 +2,15 @@
 
 use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\ColorController;
 use App\Http\Controllers\GsmController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PartwearsController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\SizeController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PartwearsController;
+use App\Http\Controllers\CategoriesController;
 
 /* Route::get('/', function () {
     return view('layaout/app');
@@ -58,6 +59,10 @@ Route::get('/dashboard/products/index', [ProductController::class, 'index'])->na
 Route::delete('dashboard/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');
 Route::get('/dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('dashboard.products.edit')->middleware('auth');
 Route::put('/dashboard/products/{id}', [ProductController::class, 'update'])->name('dashboard.products.update')->middleware('auth');
+Route::get('/catalog', [ProductController::class, 'catalog'])->name('catalog');
+Route::get('/dashboard/products/{id}', [ProductController::class, 'show'])->name('dashboard.products.show');
+Route::get('/{id}', [ProductController::class, 'product_page'])->name('product_page');
+
 
 //partwears   //////////
 
@@ -87,3 +92,11 @@ Route::get('/dashboard/sizes/create', [SizeController::class, 'create'])->name('
 Route::post('/dashboard/sizes', [SizeController::class, 'store'])->name('size.store')->middleware('auth');
 Route::get('/dashboard/sizes/index', [SizeController::class, 'index'])->name('dashboard.sizes.index')->middleware('auth');
 Route::delete('dashboard/sizes/{id}', [SizeController::class, 'destroy'])->name('size.destroy')->middleware('auth');
+
+///// cart ///////////
+
+Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/cart/remove/{key}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::post('/cart/submit', [CartController::class, 'submit'])->name('cart.submit');

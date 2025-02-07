@@ -1,489 +1,534 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-    <style>
-        body {
-            display: block !important;
-        }
-
-        @media (min-width: 700px) {
-            .onlymobile {
-                display: none !important;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .onlypc {
-                display: none !important;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-..." crossorigin="anonymous" />
-
+    <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>RONINO</title>
-    <link rel="icon" href="images/logo_demangine.png" type="image/gif" sizes="24x24">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="DemandeGine Website" name="description">
-    <meta content="" name="keywords">
-    <meta content="" name="author">
+    <title>Xpoge</title>
 
-    <!-- CSS Files
-    ================================================== -->
-    <link href="{{ asset('css/website/css/plugins.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/website/css/style.css') }}" rel="stylesheet" type="text/css">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link type="image/x-icon" href="images/fav-icon.png" rel="icon">
 
-    <!-- font icons -->
-    <link href="{{ asset('css/website/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"
-        type="text/css">
-    <link href="{{ asset('css/website/fonts/elegant_font/HTML_CSS/style.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/website/fonts/et-line-font/style.css') }}" rel="stylesheet" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{asset('css/website/xpoge.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/website/responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/website/glass-case.css')}}">
+   
 
-    <!-- color scheme -->
-    <link id="colors" href="{{ asset('css/website/css/colors/scheme-07.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/website/css/coloring.css') }}" rel="stylesheet" type="text/css">
-
-    <!-- RS5.0 Stylesheet -->
-    <link href="{{ asset('css/website/revolution/css/settings.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/website/revolution/css/layers.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/website/revolution/css/navigation.css') }}" rel="stylesheet" type="text/css">
-    <style>
-        #Fuelyourgrowth {
-
-            background-size: cover;
-            background-image: url(images/611.jpg);
-            background-size: 56% !important;
-            background-repeat: no-repeat !important;
-            background-position-x: 103% !important;
-            background-position-y: -20% !important;
-        }
-
-        #itshouldbefull {
-            background-size: 100% !important;
-            background-position: center;
-        }
-
-        /* Define your CSS styles */
-        .thisclass {
-            /* Other styles for the class */
-            background-size: 70%;
-        }
-
-        .smaller a {
-            color: white !important;
-        }
-
-        /*  .pointed-div {
-            position: relative;
-            width: 200px;
-            height: 100px;
-            background-color: #2E28A8;
-            margin: 50px auto;
-        }
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
     
-        .pointed-div::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 20px solid #2E28A8; 
-        } */
-
-        .parent {
-            position: relative;
-        }
-
-        .child {
-            border-top: 68px solid rgb(233, 236, 239);
-            border-left: 50vw solid transparent;
-            border-right: 50vw solid transparent;
-            width: 0;
-            height: 0;
-            bottom: -65px;
-            content: "";
-            display: block;
-            position: absolute;
-            overflow: hidden;
-            left: 0;
-            right: 0;
-            margin: auto;
-            z-index: 5;
-        }
-    </style>
-    <style>
-        #movingImage {
-            position: relative;
-            width: 100px;
-            /* Adjust the width as needed */
-            height: 100px;
-            /* Adjust the height as needed */
-        }
-    </style>
-
     <script>
-        // Your JavaScript code goes here
-        window.onload = function () {
-            // Get the section ID from the URL
-            const sectionIdFromURL = window.location.hash.substring(1);
-
-            // Check if the section ID exists
-            const targetSection = document.getElementById(sectionIdFromURL);
-
-            // Scroll to the section using smooth behavior if the section ID exists
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    // Extract the section ID from the href
-                    const sectionId = this.getAttribute('href').split('#')[1];
-
-                    // Check if the section ID exists
-                    const targetSection = document.getElementById(sectionId);
-                    if (targetSection) {
-                        // Scroll to the section using smooth behavior
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-
-                        // If it's a small screen, close the navigation menu
-                        if (window.innerWidth <= 768) {
-                            // Assuming your navigation menu has an ID of 'navbarNav' (replace it with your actual ID)
-                            const navbarNav = document.getElementById('navbarNav');
-                            if (navbarNav) {
-                                navbarNav.classList.remove('show');
-                            }
-                        }
-                    }
-                });
-            });
-        });
+        window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-142494086-2');
     </script>
+
 </head>
 
-<body class="dark-mode text-light disable-dark">
-    <div id="wrapper">
+<body>
+    <!-- Start preloader -->
+    <div id="preloader"></div>
+    <!-- End preloader -->
 
+    <!-- Search Screen start -->
+    <div class="sidebar-search-wrap">
+        <div class="sidebar-table-container">
+            <div class="sidebar-align-container">
+                <div class="search-closer right-side"></div>
+                <div class="search-container">
+                    <form method="get" id="search-form">
+                        <input type="text" id="s" class="search-input" name="s" placeholder="Start Searching">
+                    </form>
+                    <span>Search and Press Enter</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Screen end -->
 
-        <!-- header begin -->
-        <header>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="header-row">
-                            <div class="header-col left">
-                                <!-- logo begin -->
-                                <div id="logo">
-                                    <a href="index.php"><img alt="" class="logo" img
-                                            src="{{ asset('images/webimages/images/demendgine transparent (1).png') }}">
-                                        <img alt="" class="logo-2" img
-                                            src="{{ asset('images/webimages/images/logo_demangine.png') }}"></a>
-                                </div>
-                                <!-- logo close -->
-                            </div>
-                            <div class="header-col mid">
-                                <!-- mainmenu begin -->
-                                <ul id="mainmenu">
-                                    <li><a style="color:black" href="index.php">Home</a>
-
-                                    </li>
-                                    <li><a style="color:black" href="index.php#ourapproach">Our Approach</a>
-
-                                    </li>
-
-                                    <li><a style="color:black" href="index.php#oursolutions">Our Solutions</a></li>
-
-
-                                    <li class="onlypc"><a style="color:black" href="index.php#ourdata">Our Data</a></li>
-                                    <li class="onlymobile"><a style="color:black" href="index.php#ourdata2">Our Data</a>
-                                    </li>
-
-                                    <li class="onlypc"><a style="color:black" href="index.php#whydemandgine">Why
-                                            DemandGine</a></li>
-                                    <li class="onlymobile"><a style="color:black" href="index.php#whydemandgine2">Why
-                                            DemandGine</a></li>
-
-                                    <li class="onlymobile"><a style="color:black" href="contact.php">contact</a></li>
-                                </ul>
-                                <div class="col-right onlypc">
-                                    <a class="btn-custom" href="contact.php"> Contact Us</a>
+    <div id="newslater-popup" class="mfp-hide white-popup-block open align-center">
+        <div class="nl-popup-main">
+            <div class="nl-popup-inner">
+                <div class="newsletter-inner">
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="mtb-30">
+                                <h2 class="main_title">Subscribe Emails</h2>
+                                <span class="sub-title mb-30">Sign up & get 10% off</span>
+                                <form>
+                                    <input type="email" placeholder="Email Here...">
+                                    <button class="btn-color big-width btn" title="Subscribe">Subscribe</button>
+                                </form>
+                                <div class="check-box mt-30">
+                                    <span>
+                                        <input type="checkbox" class="checkbox" id="different-address"
+                                            name="Ship to a different address?">
+                                        <label for="different-address">Don`t show this popup again</label>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="clearfix"></div>
                         </div>
-                        <!-- small button begin -->
-                        <span id="menu-btn"></span>
-                        <!-- small button close -->
-
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <!-- Header start -->
+        <header id="header">
+            <div class="container position-r">
+                <div class="row m-0">
+                    <div class="col-lg-3 col-md-4 col-4 p-0">
+                        <div class="navbar-header">
+                            <a class="navbar-brand page-scroll" href="index.html">
+                                <img alt="xpoge" src="{{asset('images/webimages/logo.png')}}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-8 p-0 position-initial">
+                        <div class="right-side">
+                            <button data-target=".navbar-collapse" data-toggle="collapse"
+                                class="navbar-toggle d-block d-lg-none d-xl-none" type="button"><i
+                                    class="fa fa-bars"></i>
+                            </button>
+                            <div class="overlay"></div>
+                            <div id="menu" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="level">
+                                        <a href="index.html" class="nav-link">Home</a>
+                                    </li>
+                                    <li class="level dropdown">
+                                        <span class="opener plus"></span>
+                                        <a href="shop.html" class="nav-link">Women</a>
+                                        <div class="megamenu mobile-sub-menu">
+                                            <div class="megamenu-inner-top">
+                                                <ul class="sub-menu-level1">
+                                                    <li class="level2 "> <a href="shop.html"><span>Women
+                                                                Cloths</span></a>
+                                                        <ul class="sub-menu-level2">
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Jeans &
+                                                                    Jeggings</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Skirts</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Dresses</a></li>
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Tops &
+                                                                    Shirts</a></li>
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Winter
+                                                                    Wear</a></li>
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Jeans &
+                                                                    Jeggings</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="level2"> <a href="shop.html"><span>Accessories</span></a>
+                                                        <ul class="sub-menu-level2 ">
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Skincare</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Makeup</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Gloves</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Socks</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Lipstick</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Foundation</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="level2 d-none d-lg-block">
+                                                        <a href="shop.html" class="m-0">
+                                                            <img src="{{asset('images/webimages/drop_banner3.jpg')}}"
+                                                                alt="Xpoge">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="level dropdown">
+                                        <span class="opener plus"></span>
+                                        <a href="shop.html" class="nav-link">Men</a>
+                                        <div class="megamenu full mobile-sub-menu">
+                                            <div class="megamenu-inner-top">
+                                                <div class="row sub-menu-level1">
+                                                    <div class="col-lg-3 level2 "> <a href="shop.html"><span>Men
+                                                                Cloths</span></a>
+                                                        <ul class="sub-menu-level2">
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Navy
+                                                                    Blazer</a></li>
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Sport
+                                                                    Jeans</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Sleeveless Shirt</a>
+                                                            </li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Trousers</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3 level2"> <a href="shop.html"><span>Men
+                                                                Fashion</span></a>
+                                                        <ul class="sub-menu-level2 ">
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Purse</a></li>
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Sport
+                                                                    Shoes</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Wallets</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Belt</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3 level2"> <a href="shop.html"><span>Women
+                                                                Fashion</span></a>
+                                                        <ul class="sub-menu-level2 ">
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Jeans &
+                                                                    Jeggings</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Skirts</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Dresses</a></li>
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Tops &
+                                                                    Shirts</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-3 level2"> <a
+                                                            href="shop.html"><span>Accessories</span></a>
+                                                        <ul class="sub-menu-level2 ">
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Sunglasses</a></li>
+                                                            <li class="level3"><a href="shop.html"><span>■</span>Pocket
+                                                                    Watch</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Gloves</a></li>
+                                                            <li class="level3"><a
+                                                                    href="shop.html"><span>■</span>Socks</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6 mt-30 d-none d-lg-block">
+                                                        <div class="sub-menu-img">
+                                                            <a href="shop.html">
+                                                                <img src="{{asset('images/webimages/drop_banner1.jpg')}}"
+                                                                    alt="Xpoge">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 mt-30 d-none d-lg-block">
+                                                        <div class="sub-menu-img">
+                                                            <a href="shop.html">
+                                                                <img src="{{asset('images/webimages/drop_banner2.jpg')}}"
+                                                                    alt="Xpoge">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="level">
+                                        <a href="shop.html" class="nav-link">Juniors</a>
+                                    </li>
+                                    <li class="level dropdown">
+                                        <span class="opener plus"></span>
+                                        <a href="blog-left-col.html">Blog</a>
+                                        <div class="megamenu mobile-sub-menu">
+                                            <div class="megamenu-inner-top">
+                                                <ul class="sub-menu-level1">
+                                                    <li class="level2 ">
+                                                        <ul class="sub-menu-level2">
+                                                            <li class="level3"><a
+                                                                    href="blog-left-col.html"><span>■</span>Blog
+                                                                    Left-Sidebar</a></li>
+                                                            <li class="level3"><a
+                                                                    href="blog-right-col.html"><span>■</span>Blog
+                                                                    Right-Sidebar</a></li>
+                                                            <li class="level3"><a
+                                                                    href="blog-detail.html"><span>■</span>Singal
+                                                                    Blog</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="level dropdown">
+                                        <span class="opener plus"></span>
+                                        <a href="#" class="nav-link">Pages</a>
+                                        <div class="megamenu mobile-sub-menu">
+                                            <div class="megamenu-inner-top">
+                                                <ul class="sub-menu-level1">
+                                                    <li class="level2 ">
+                                                        <ul class="sub-menu-level2">
+                                                            <li class="level3"><a
+                                                                    href="contact.html"><span>■</span>Contact</a></li>
+                                                            <li class="level3"><a
+                                                                    href="checkout.html"><span>■</span>Checkout</a></li>
+                                                            <li class="level3"><a
+                                                                    href="wishlist.html"><span>■</span>Wishlist</a></li>
+                                                            <li class="level3"><a href="404.html"><span>■</span>404</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="header-right-link">
+                                <ul>
+                                    <li class="search-box">
+                                        <a href="#"><span></span></a>
+                                    </li>
+                                    <li class="account-icon">
+                                        <a href="#"><span></span></a>
+                                        <div class="header-link-dropdown account-link-dropdown">
+                                            <ul class="link-dropdown-list">
+                                                <li> <span class="dropdown-title">Default welcome msg!</span>
+                                                    <ul>
+                                                        <li><a href="login.html">Sign In</a></li>
+                                                        <li><a href="register.html">Create an Account</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li> <span class="dropdown-title">Language :</span>
+                                                    <ul>
+                                                        <li><a class="active" href="#">English</a></li>
+                                                        <li><a href="#">French</a></li>
+                                                        <li><a href="#">German</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li> <span class="dropdown-title">Currency :</span>
+                                                    <ul>
+                                                        <li><a class="active" href="#">USD</a></li>
+                                                        <li><a href="#">AUD</a></li>
+                                                        <li><a href="#">EUR</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="cart-icon">
+                                        <a href="#"> <span> <small class="cart-notification">2</small> </span> </a>
+                                        <div class="cart-dropdown header-link-dropdown">
+                                            <ul class="cart-list link-dropdown-list">
+                                                <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
+                                                    <figure> <a href="product-page.html" class="pull-left"> <img
+                                                                alt="Xpoge"
+                                                                src="{{asset('images/webimages/1.jpg')}}"></a>
+                                                        <figcaption> <span><a href="product-page.html">Men's Full
+                                                                    Sleeves Collar Shirt</a></span>
+                                                            <p class="cart-price">$14.99</p>
+                                                            <div class="product-qty">
+                                                                <label>Qty:</label>
+                                                                <div class="custom-qty">
+                                                                    <input type="text" name="qty" maxlength="8"
+                                                                        value="1" title="Qty" class="input-text qty">
+                                                                </div>
+                                                            </div>
+                                                        </figcaption>
+                                                    </figure>
+                                                </li>
+                                                <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
+                                                    <figure> <a href="product-page.html" class="pull-left"> <img
+                                                                alt="Xpoge"
+                                                                src="{{asset('images/webimages/2.jpg')}}"></a>
+                                                        <figcaption> <span><a href="product-page.html">Women's Cape
+                                                                    Jacket</a></span>
+                                                            <p class="cart-price">$14.99</p>
+                                                            <div class="product-qty">
+                                                                <label>Qty:</label>
+                                                                <div class="custom-qty">
+                                                                    <input type="text" name="qty" maxlength="8"
+                                                                        value="1" title="Qty" class="input-text qty">
+                                                                </div>
+                                                            </div>
+                                                        </figcaption>
+                                                    </figure>
+                                                </li>
+                                            </ul>
+                                            <p class="cart-sub-totle"> <span class="pull-left">Cart Subtotal</span>
+                                                <span class="pull-right"><strong
+                                                        class="price-box">$29.98</strong></span>
+                                            </p>
+                                            <div class="clearfix"></div>
+                                            <div class="mt-20"> <a href="cart.html" class="btn-color btn">Cart</a> <a
+                                                    href="checkout.html" class="btn-color btn right-side">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
+        <!-- Header end -->
         @yield('content')
-        <footer>
+        <section class="newsletter-section align-center ptb-100">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="widget">
-                            <a href="index.php"><img alt="" style="width: 200px;" class="logo" img
-                                    src="{{ asset('images/webimages/images/demendgine transparent (1).png') }}"></a>
-                            <div class="spacer-20"></div>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-envelope-o fa-lg"></i>&#160;
-                                        &nbsp;Info@demandgine.com</a></li>
-                                <li><a href="#"><i class="fa fa-phone fa-lg"></i>&#160; &nbsp; (702) 805-0273</a></li>
-                                <li class="text-light"><span><i class="fa fa-map-marker fa-lg"></i>&nbsp; &nbsp;
-                                        Demandgine Inc.
-                                        <br> 6543 South Las Vegas Blvd Suite #200 <br>Las Vegas, NV 89119</li>
-
-
-                            </ul>
+                <div class="row justify-content-center">
+                    <div class="col-xl-7 col-lg-9 col-12">
+                        <div class="newsletter-title">
+                            <h2 class="main_title">Sign up for Newsletter </h2>
+                            <p>Wants to get latest updates! sign up for Free </p>
+                        </div>
+                        <div class="newsletter-input">
+                            <form>
+                                <div class="form-group m-0">
+                                    <input type="email" placeholder="Your email address" required="">
+                                </div>
+                                <button type="submit" class="btn btn-color"><span
+                                        class="d-none d-sm-block">Subscribe</span> <i
+                                        class="fa fa-send d-block d-sm-none"></i></button>
+                            </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newslatter section end -->
 
-                    <div class="col-md-7">
+        <!-- Footer section start -->
+        <footer class="footer-part">
+            <div class="container">
+                <div class="footer-top ptb-100">
+                    <div class="mb_-30">
                         <div class="row">
-
-
-                            <div class="col-md-6 col-xs-4">
-                                <div class="widget">
-                                    <h5 class="text-light">Links</h5>
-                                    <div class="tiny-border"></div>
-                                    <ul>
-                                        <li><a href="index.php">Home</a></li>
-                                        <li><a href="index.php#ourapproach">Our Approach</a></li>
-                                        <li><a href="index.php#oursolutions">Our Solutions</a></li>
-
-                                        <li class="onlypc"><a href="index.php#ourdata">Our Data</a></li>
-                                        <li class="onlymobile"><a href="index.php#ourdata2">Our Data</a></li>
-
-                                        <li class="onlypc"><a href="index.php#whydemandgine">Why Demandgine</a></li>
-                                        <li class="onlymobile"><a href="index.php#whydemandgine2">Why Demandgine</a>
-                                        </li>
-
+                            <div class="col-12 col-lg-3 col-md-6">
+                                <div class="footer-about mb-sm-30">
+                                    <div class="footer-logo">
+                                        <a href="index.html">
+                                            <img src="{{asset('images/webimages/logo.png')}}">
+                                        </a>
+                                    </div>
+                                    <p class="footer-p">Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed
+                                        fringilla mauris sit amet nibh mauris sit amet nibh. Donec sodales sagittis</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 col-md-6">
+                                <div class="footer-static-block">
+                                    <span class="opener plus"></span>
+                                    <h3 class="head-three">Information</h3>
+                                    <ul class="footer-menu footer-block-contant">
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="javascript:void(0)">Brands</a></li>
+                                        <li><a href="blog-left-col.html">Blog</a></li>
+                                        <li><a href="javascript:void(0)">Returns</a></li>
+                                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="col-md-6 col-xs-4">
-                                <div class="widget">
-                                    <h5 class="text-light">Legal</h5>
-                                    <div class="tiny-border"></div>
-                                    <ul>
-                                        <li><a
-                                                href="https://app.termly.io/document/privacy-policy/72e20918-660e-4f00-9dae-8e6738608a86">Privacy
-                                                Policy</a></li>
-                                        <li><a href="uae-privacy-policy.php">UAE Privacy Policy</a></li>
-                                        <li><a href="donotsellmyinfo.php">Do Not Sell My Personal Information</a></li>
-
-
-
+                            <div class="col-12 col-lg-3 col-md-6">
+                                <div class="footer-static-block">
+                                    <span class="opener plus"></span>
+                                    <h3 class="head-three">My Account</h3>
+                                    <ul class="footer-menu footer-block-contant">
+                                        <li><a href="javascript:void(0)">Order History</a></li>
+                                        <li><a href="wishlist.html">Wish List</a></li>
+                                        <li><a href="javascript:void(0)">Newsletter</a></li>
+                                        <li><a href="javascript:void(0)">Specials</a></li>
+                                        <li><a href="javascript:void(0)">Gift Certificates</a></li>
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3 col-md-6">
+                                <div class="footer-static-block">
+                                    <span class="opener plus"></span>
+                                    <h3 class="head-three">Contact us</h3>
+                                    <div class="contact-box footer-block-contant">
+                                        <ul>
+                                            <li>
+                                                <div class="contact-thumb">
+                                                    <img src="{{asset('images/webimages/address-icon.svg')}}">
+                                                </div>
+                                                <div class="contact-box-detail">
+                                                    <p>869 Lexington Ave, New York, NY 10065, USA</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="contact-thumb">
+                                                    <img src="{{asset('images/webimages/phone-icon.svg')}}" alt="xpoge">
+                                                </div>
+                                                <div class="contact-box-detail">
+                                                    <p>+91 123 456 789 0</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="contact-thumb">
+                                                    <img src="{{asset('images/webimages/mail-icon.svg')}}" alt="xpoge">
+                                                </div>
+                                                <div class="contact-box-detail">
+                                                    <p>xpoge@hi123.com</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-
-                <div class="row">
-                    <div class="col-lg-9 sm-text-center  mb-sm-30">
-                        <div class="mt10">&copy; Copyright 2024 - All Rights Reserved</div>
-                    </div>
-
-                    <div class="col-lg-3 ">
-                        <div class="social-icons ">
-                            <a target="_blank" href="https://www.linkedin.com/company/demandgine-inc/about/"><i
-                                    class="fa fa-linkedin fa-lg"></i></a>
-                            <!--  <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                                        <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                                       
-                                        <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-                                        <a href="#"><i class="fa fa-rss fa-lg"></i></a> -->
+                <div class="footer-bottom align-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="w-100">
+                                <p class="mb-0">© Xpoge all Rights Reserverd theme by <a
+                                        href="https://TemplatesCoder.com/" target="_blank"
+                                        title="TemplatesCoder">TemplatesCoder</a></p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="social-media">
+                                <ul>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="javascript:void(0)"><i class="fa fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </footer>
-        <!-- footer close -->
-
-        <div id="preloader">
-            <div class="spinner">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
-            </div>
-        </div>
+        <!-- Footer section end -->
     </div>
-
-
-    <!-- Javascript Files
-            ================================================== -->
-    {{-- <script src="js/plugins.js"></script>
-    <script src="js/designesia.js"></script> --}}
-    <script src="{{ asset('js/website/plugins.js') }}"></script>
-    <script src="{{ asset('js/website/designesia.js') }}"></script>
-    <!-- <script src="appapp.js"></script>-->
-
-
-
-    <!--  <script src="js/validation.js"></script> -->
-
-    <!-- RS5.0 Core JS Files -->
-    <!--   <script src="revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-                <script src="revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script> -->
-
-    <!-- RS5.0 Extensions Files -->
-    <!--  <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
-                <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-                <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-                <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-                <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-                <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-                <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-                <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script> -->
-    <!-- current page only scripts -->
+    <script src="{{asset('js/website/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('js/website/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/website/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('js/website/modernizr.js')}}"></script>
+<script src="{{asset('js/website/jquery.magnific-popup.min.js')}}"></script>
 
     <script>
-        jQuery(document).ready(function() {
-                        // revolution slider
-                        jQuery("#revolution-slider").revolution({
-                            sliderType: "standard",
-                            sliderLayout: "fullscreen",
-                            delay: 5000,
-                            navigation: {
-                                arrows: {
-                                    enable: true
-                                }
-                            },
-                            parallax: {
-                                type: "mouse",
-                                origo: "slidercenter",
-                                speed: 2000,
-                                levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50],
-                            },
-                            spinner: "off",
-                            gridwidth: 1140,
-                            gridheight: 600,
-                            disableProgressBar: "on"
-                        });
-                    });
-                  
+        $(document).ready( function () {
+	            //If your <ul> has the id "glasscase"
+	            $('#glasscase').glassCase({ 
+	            	'thumbsPosition': 'bottom', 
+	            	'widthDisplayPerc' : 100,
+	            	isDownloadEnabled: false,
+	            });
+	        });
     </script>
+    
+    <script src="{{asset('js/website/custom.js')}}"></script>
     <script>
-        // Use JavaScript to set the background-size property
-                document.addEventListener('DOMContentLoaded', function() {
-                    // Select the element with the 'thisclass' class
-                    var element = document.querySelector('.thisclass');
-        
-                    // Check if the element is found
-                    if (element) {
-                        // Set the background-size property to 50%
-                        element.style.backgroundSize = '73%';
-                    }
-                });
+        /* ------------ Newslater-popup JS Start ------------- */
+        				$(window).on('load', function(){
+        					setTimeout(function(){
+        					    jQuery.magnificPopup.open({
+        					    items: {src: '#newslater-popup'},type: 'inline'}, 0);
+        					},10000)
+        				});
+        		    /* ------------ Newslater-popup JS End ------------- */
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get the image element
-            var movingImage = document.getElementById('movingImage');
-        
-            // Set the initial position and direction
-            var position = 0;
-            var direction = 1; // 1 for down, -1 for up
-        
-            // Set the interval for the movement (adjust the interval duration as needed)
-            var interval = setInterval(function () {
-                // Update the position based on the direction
-                position += direction *10;
-        
-                // Set the new position
-                movingImage.style.top = position + 'px';
-        
-                // Change direction when reaching the top or bottom
-                if (position <= 0 || position >= window.innerHeight - movingImage.offsetHeight) {
-                    direction *= -1;
-                }
-            }, 10); // Adjust the interval duration (in milliseconds) as needed
-        });
-    </script>
-    <script>
-        document.querySelector('#itshouldbefull').style.backgroundSize = '200%';
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-                const ctx = document.getElementById('myChart');
-        
-                const data = {
-                    datasets: [{
-                        label: 'My First Dataset',
-                        data: [43, 36, 47],
-                        backgroundColor: ['#2E28A8', '#00d4c8', 'blue'],
-                        hoverOffset: 4
-                    }]
-                };
-        
-                new Chart(ctx, {
-                    type: 'pie',
-                    data: data,
-                    plugins: [{
-                        afterRender: function (chart) {
-                            const width = chart.width;
-                            const height = chart.height;
-                            const ctx = chart.ctx;
-        
-                            const fontSize = (height / 114).toFixed(2);
-                            ctx.font = fontSize + "em sans-serif";
-                            ctx.textBaseline = "middle";
-                            ctx.fillStyle = 'white'; // Set text color
-        
-                            const text = "Inside Text";
-                            const textX = Math.round((width - ctx.measureText(text).width) / 2);
-                            const textY = height / 2;
-        
-                            ctx.fillText(text, textX, textY);
-                        }
-                    }]
-                });
-            });
-    </script>
-
-    <script>
-        var thistextElement = document.getElementById('thistext');
-        
-        // Check if the element exists before attempting to modify its style
-        if (thistextElement) {
-            // Delay the loading of the element by 500 milliseconds
-            setTimeout(function () {
-                thistextElement.style.display = 'block'; // or 'inline' or any other appropriate display value
-            }, 100);
-        }
-    </script>
-
-
-    <!--Start of Tawk.to Script-->
-
-    <!--End of Tawk.to Script-->
 </body>
 
 </html>

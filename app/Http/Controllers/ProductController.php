@@ -25,6 +25,14 @@ class ProductController extends Controller
         return view('dashboard.products.index', compact('products'));
     }
 
+    public function catalog()
+    {
+        // Fetch all blogs ordered by creation date, latest first
+        $products = Product::orderBy('created_at', 'desc')->get();
+
+        // Pass the blogs to the view
+        return view('catalog', compact('products'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -90,7 +98,13 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('dashboard.products.show', compact('product'));
+    }
+    public function product_page(string $id)
+    {
+        $product = Product::findOrFail($id);
+        return view('product_page', compact('product'));
     }
 
     /**
