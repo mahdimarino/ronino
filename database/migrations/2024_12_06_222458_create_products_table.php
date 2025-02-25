@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('product_code')->unique();
+            $table->text('description');
+            $table->decimal('prix', 8, 2);
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('gsm_id')->constrained()->onDelete('cascade');
+            $table->string('tags')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

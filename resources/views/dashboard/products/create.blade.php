@@ -27,6 +27,16 @@
                 </div>
 
             </div>
+            <div class="form-group col-7">
+                <label>Prix: <span class="tx-danger">*</span></label>
+                <div class="input-group">
+                    <input type="number" name="prix" class="form-control" required>
+                </div>
+            
+            </div>
+            <div class="form-group col-7">
+                <textarea  id="" cols="30" name="description" rows="10" required></textarea>
+            </div>
         </div>
 
         <!-- Input for multiple image uploads -->
@@ -50,7 +60,7 @@
         <select name="gsm_id" id="gsm_id" required>
             <option value="" disabled selected>Select a GSM</option>
             @foreach($gsms as $gsm)
-            <option value="{{ $gsm->id }}">{{ $gsm->value }}</option>
+            <option value="{{ $gsm->id }}">{{ $gsm->name }}</option>
             @endforeach
         </select><br><br>
         <div class=" col-6">

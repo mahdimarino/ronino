@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('gsms', function (Blueprint $table) {
             $table->id();
-            $table->string('value'); // Example: 180 GSM, 200 GSM
+            $table->string('name'); // Example: 180 GSM, 200 GSM
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@
             <div class="form-group col-7">
                 <label>GSM Value <span class="tx-danger">*</span></label>
                 <div class="input-group">
-                    <input type="text" name="value" class="form-control" required>
+                    <input type="text" name="name" class="form-control" required>
                 </div>
 
             </div>

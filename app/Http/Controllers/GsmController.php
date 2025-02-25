@@ -33,12 +33,12 @@ class GsmController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'value' => 'required|string|max:255', // Ensure the name is unique in the 'colors' table
+            'name' => 'required|string|max:255', // Ensure the name is unique in the 'colors' table
         ]);
         try {
 
             $gsm = new \App\Models\Gsm();
-            $gsm->value = $validatedData['value'];
+            $gsm->name = $validatedData['name'];
             $gsm->save();
             return redirect()->route('dashboard.gsms.index')->with('success', 'Category added successfully!');
         } catch (\Exception $e) {

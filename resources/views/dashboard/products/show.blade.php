@@ -28,6 +28,7 @@
     <form action="{{ route('cart.add', $product->id) }}" method="POST">
         @csrf
         <div class="form-group">
+            <input type="number" name="quantity" id="">
             <label for="size">Select Size:</label>
             <select class="form-control" id="size" name="size">
                 <option value="small">Small</option>

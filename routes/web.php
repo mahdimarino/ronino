@@ -11,24 +11,26 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PartwearsController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\OrderController;
 
 /* Route::get('/', function () {
     return view('layaout/app');
 }); */
 
-Route::get('/home', function () {
-    return view('home');
-});
-Route::get('blog/list', function () {
-    return view('blog.list');
-});
+// Route::get('/home', function () {
+//     return view('home');
+// });
+// Route::get('blog/list', function () {
+//     return view('blog.list');
+// });
 
 // Route::get('/blogs/create', function () {
 //     return view('bolgs.create');
 // });
 
+Route::get('', [ProductController::class, 'home'])->name('home');
 
-Route::get('/', [LoginController::class, 'loginForm'])->name('login');
+Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/dashboard/blogs', [BlogController::class, 'store'])->name('insertData')->middleware('auth');
@@ -61,7 +63,8 @@ Route::get('/dashboard/products/{id}/edit', [ProductController::class, 'edit'])-
 Route::put('/dashboard/products/{id}', [ProductController::class, 'update'])->name('dashboard.products.update')->middleware('auth');
 Route::get('/catalog', [ProductController::class, 'catalog'])->name('catalog');
 Route::get('/dashboard/products/{id}', [ProductController::class, 'show'])->name('dashboard.products.show');
-Route::get('/{id}', [ProductController::class, 'product_page'])->name('product_page');
+Route::get('products/{id}', [ProductController::class, 'product_page'])->name('products.product_page');
+
 
 
 //partwears   //////////
@@ -100,3 +103,11 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::get('/cart/remove/{key}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::post('/cart/submit', [CartController::class, 'submit'])->name('cart.submit');
+Route::get('/cart/test', [CartController::class, 'test'])->name('cart.test');
+
+
+//////////// orders /////////////////
+
+Route::get('/dashboard/orders/index', [OrderController::class, 'index'])->name('dashboard.orders.index')->middleware('auth');
+Route::get('/dashboard/orders/{id}', [OrderController::class, 'show'])->name('dashboard.orders.show');
+Route::delete('/dashboard/orders/{id}', [OrderController::class, 'destroy'])->name('dashboard.orders.destroy');

@@ -20,7 +20,7 @@ GSM List
             <tr>
                 <td scope="row"><a href="">{{
                         $gsm->id }}</a></td>
-                <td>{{ $gsm->value}}</td>
+                <td>{{ $gsm->name}}</td>
                 <td>
                     <a href="" class="btn btn-sm btn-primary">
                         <i class="fa fa-eye"></i> View

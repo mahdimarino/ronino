@@ -25,6 +25,11 @@ class ProductController extends Controller
         return view('dashboard.products.index', compact('products'));
     }
 
+    public function home()
+    {
+        return view('home');
+    }
+
     public function catalog()
     {
         // Fetch all blogs ordered by creation date, latest first
@@ -58,9 +63,11 @@ class ProductController extends Controller
         // Validate the form data
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'prix' => 'required|integer',
             'product_code' => 'required|string|max:255|unique:products,product_code',
             'category_id' => 'required|exists:categories,id',
             'gsm_id' => 'required|exists:gsms,id',
+            'description' => 'required|string',
             // 'color_id' => 'required|exists:colors,id',
             // 'quantity'=> 'required|integer'
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -69,9 +76,11 @@ class ProductController extends Controller
         // Create the product
         $product = Product::create([
             'title' => $validatedData['title'],
+            'prix' => $validatedData['prix'],
             'product_code' => $validatedData['product_code'],
             'category_id' => $validatedData['category_id'],
             'gsm_id' => $validatedData['gsm_id'],
+            'description' => $validatedData['description'],
         ]);
         // Handle multiple image uploads
         if ($request->hasFile('images')) {
@@ -103,8 +112,9 @@ class ProductController extends Controller
     }
     public function product_page(string $id)
     {
+
         $product = Product::findOrFail($id);
-        return view('product_page', compact('product'));
+        return view('products.product_page', compact('product'));
     }
 
     /**
@@ -134,7 +144,8 @@ class ProductController extends Controller
             'product_code' => 'required|string|max:255|unique:products,product_code,' . $id,
             'category_id' => 'required|exists:categories,id',
             'gsm_id' => 'required|exists:categories,id',
-
+            'prix' => 'required|integer',
+            'description' => 'required|string',
             'delete_images' => 'nullable|array',
             'delete_images.*' => 'exists:images,id',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -146,6 +157,8 @@ class ProductController extends Controller
             'product_code' => $validatedData['product_code'],
             'category_id' => $validatedData['category_id'],
             'gsm_id' => $validatedData['gsm_id'],
+            'prix' => $validatedData['prix'],
+            'description' => $validatedData['description'],
         ]);
 
         $product->colors()->detach();

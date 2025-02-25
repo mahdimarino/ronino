@@ -10,7 +10,15 @@
     </div>
     <div id="dpSidebarBody" class="sidebar-body">
         <ul class="nav nav-sidebar">
-            <li class="nav-label"><label class="content-label">PRODUCTS</label></li>
+            
+            <li class="nav-item">
+                <a href="{{ route('dashboard.orders.index') }}" @class([ 'nav-link' , 'active'=> (Route::currentRouteName() ==
+                    'dashboard.orders.index')
+                    ])>
+                    <i class="fa fa-list"></i> Orders List
+                </a>
+            </li>
+           
             <li class="nav-item">
                 <a href="{{ route('dashboard.products.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'blogs.') && (Route::currentRouteName()
@@ -27,7 +35,7 @@
                 </a>
             </li>
             {{-- //////////////////////////////////////////////////////////////////////// --}}
-            <li class="nav-label"><label class="content-label">COLORS</label></li>
+           
             <li class="nav-item">
                 <a href="{{ route('dashboard.colors.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'colors.') && (Route::currentRouteName()
@@ -43,7 +51,7 @@
                 </a>
             </li>
             {{-- //////////////////////////////////////////////////////////////////////// --}}
-            <li class="nav-label"><label class="content-label">PARTWEARS</label></li>
+           
             <li class="nav-item">
                 <a href="{{ route('dashboard.partwears.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'partwears.') && (Route::currentRouteName()
@@ -59,7 +67,7 @@
                 </a>
             </li>
             {{-- //////////////////////////////////////////////////////////////////////// --}}
-            <li class="nav-label"><label class="content-label">CATEGORIES</label></li>
+            
             <li class="nav-item">
                 <a href="{{ route('dashboard.categories.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'categories.') && (Route::currentRouteName()
@@ -76,7 +84,7 @@
             </li>
 
             {{-- //////////////////////////////////////////////////////////////////////// --}}
-            <li class="nav-label"><label class="content-label">GSM</label></li>
+           
             <li class="nav-item">
                 <a href="{{ route('dashboard.gsms.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'gsms.') && (Route::currentRouteName()
@@ -92,7 +100,7 @@
                 </a>
             </li>
             {{-- //////////////////////////////////////////////////////////////////////// --}}
-            <li class="nav-label"><label class="content-label">SIZE</label></li>
+            
             <li class="nav-item">
                 <a href="{{ route('dashboard.sizes.create') }}" @class(['nav-link', 'active'=>
                     (Str::startsWith(Route::currentRouteName(), 'sizes.') && (Route::currentRouteName()

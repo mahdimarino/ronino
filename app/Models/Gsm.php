@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gsm extends Model
 {
-    protected $fillable = ['value']; // Example: 180 GSM, 200 GSM
+    protected $fillable = ['name']; // Example: 180 GSM, 200 GSM
 
     // public function products()
     // {

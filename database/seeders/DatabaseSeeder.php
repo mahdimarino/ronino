@@ -40,6 +40,12 @@ class DatabaseSeeder extends Seeder
     Color::create(['name' => 'Red']);
     Color::create(['name' => 'Blue']);
     Color::create(['name' => 'Green']);
+
+    Gsm::create(['name' => '180']);
+    Gsm::create(['name' => '200']);
+    Gsm::create(['name' => '220']);
+    Gsm::create(['name' => '240']);
+    Gsm::create(['name' => '260']);
        
     Size::create(['name' => 'Small']);
     Size::create(['name' => 'Medium']);

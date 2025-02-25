@@ -332,10 +332,12 @@
                                 <div class="product-item">
                                     <div class="product-image">
                                         <div class="sale-label"><span>Sale</span></div>
-                                         <a href="{{ route('product_page', ['id' => $product->id]) }}">
-                                            {{-- <a href="{{ route('dashboard.products.show', ['id' => $product->id]) }}"> --}}
-                                            <img src="{{ $product->images->first()->url }}" alt="Xpoge">
-                                        </a>
+                                        <a href="{{ route('products.product_page', ['id' => $product->id]) }}">
+                                            {{-- <a
+                                                href="{{ route('dashboard.products.show', ['id' => $product->id]) }}">
+                                                --}}
+                                                <img src="{{ $product->images->first()->url }}" alt="Xpoge">
+                                            </a>
                                     </div>
                                     <div class="product-details-outer">
                                         <div class="product-details">
@@ -343,12 +345,12 @@
                                                 <a href="product-page.html">{{ $product->title }}</a>
                                             </div>
                                             <div class="price-box">
-                                                <span class="price">{{ $product->price ?? 'Soon' }}</span>
+                                                <span class="price">{{ $product->prix ?? 'Soon' }} AED</span>
                                                 {{-- @php
-                                                    $firstProduct = $products->firstWhere('id', $product->id);
-                                                    $price = $firstProduct ? $firstProduct->price : 'Soon';
+                                                $firstProduct = $products->firstWhere('id', $product->id);
+                                                $price = $firstProduct ? $firstProduct->price : 'Soon';
                                                 @endphp --}}
-                                                <del class="price old-price">{{ $product->price * 2 }}</del>
+                                                <del class="price old-price">{{ $product->prix * 2 }} AED</del>
                                             </div>
                                         </div>
                                         <div class="product-details-btn">

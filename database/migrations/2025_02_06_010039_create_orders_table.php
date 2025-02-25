@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('email'); // Customer email
             $table->string('mobile'); // Customer mobile number
             $table->text('address'); // Customer address
+            $table->string('order_number'); // Order number
             $table->decimal('total_amount', 10, 2); // Total order amount
             $table->json('cart_items'); // Store cart items as JSON
+            $table->text('notes')->nullable(); // Additional notes
             $table->timestamps();
         });
     }

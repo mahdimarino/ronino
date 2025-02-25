@@ -4,7 +4,7 @@
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>Xpoge</title>
+    <title>El Ronino</title>
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/website/xpoge.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/website/responsive.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/website/glass-case.css')}}">
+    
    
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -100,7 +101,10 @@
                             <div id="menu" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li class="level">
-                                        <a href="index.html" class="nav-link">Home</a>
+                                        <a href="{{route('home')}}" class="nav-link">Home</a>
+                                    </li>
+                                    <li class="level">
+                                        <a href="{{route('catalog')}}" class="nav-link">Catalog</a>
                                     </li>
                                     <li class="level dropdown">
                                         <span class="opener plus"></span>
@@ -287,7 +291,7 @@
                                     <li class="search-box">
                                         <a href="#"><span></span></a>
                                     </li>
-                                    <li class="account-icon">
+                                    {{-- <li class="account-icon">
                                         <a href="#"><span></span></a>
                                         <div class="header-link-dropdown account-link-dropdown">
                                             <ul class="link-dropdown-list">
@@ -313,10 +317,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li class="cart-icon">
-                                        <a href="#"> <span> <small class="cart-notification">2</small> </span> </a>
-                                        <div class="cart-dropdown header-link-dropdown">
+                                       <a href="{{ route('cart.index') }}">
+                                        <span>
+                                            <small id="cart-count" class="cart-notification">{{ $cartCount }}</small>
+                                        </span>
+                                    </a>
+                                        {{-- <div class="cart-dropdown header-link-dropdown">
                                             <ul class="cart-list link-dropdown-list">
                                                 <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
                                                     <figure> <a href="product-page.html" class="pull-left"> <img
@@ -361,7 +369,7 @@
                                             <div class="mt-20"> <a href="cart.html" class="btn-color btn">Cart</a> <a
                                                     href="checkout.html" class="btn-color btn right-side">Checkout</a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </li>
                                 </ul>
                             </div>
@@ -519,16 +527,16 @@
     </script>
     
     <script src="{{asset('js/website/custom.js')}}"></script>
-    <script>
+    {{-- <script>
         /* ------------ Newslater-popup JS Start ------------- */
         				$(window).on('load', function(){
         					setTimeout(function(){
         					    jQuery.magnificPopup.open({
         					    items: {src: '#newslater-popup'},type: 'inline'}, 0);
-        					},10000)
+        					},4000)
         				});
         		    /* ------------ Newslater-popup JS End ------------- */
-    </script>
+    </script> --}}
 </body>
 
 </html>

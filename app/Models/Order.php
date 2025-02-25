@@ -15,5 +15,7 @@ class Order extends Model
         'address',
         'total_amount',
         'cart_items',
+        'order_number',
+        'notes',
     ];
 }

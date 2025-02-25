@@ -27,6 +27,7 @@ Products
                 <th scope="col">Product code</th>
                 <th scope="col">GSM</th>
                 <th scope="col">Category</th>
+                <th scope="col">Prix</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -46,8 +47,9 @@ Products
                 
                 <td>{{ $product->title}}</td>
                 <td>{{ $product->product_code}}</td>
-                <td>{{ $product->gsm ? $product->gsm->value : 'N/A' }}</td>
+                <td>{{ $product->gsm ? $product->gsm->name : 'N/A' }}</td>
                 <td>{{ $product->category->name}}</td>
+                <td>{{ $product->prix}}</td>
                 <td>
                     {{-- <a class="btn btn-sm btn-primary">
                         <i class="fa fa-eye"></i> View
