@@ -51,12 +51,24 @@
                 <h4 class="mg-b-0">@yield('content-title')</h4>
             </div>
             <div class="header-right">
+                <form action="{{ route('dashboard.products.search') }}" method="GET" class="dropdown-item">
+                    @csrf
+                    <div class="input-group">
+                        <input type="text" name="tags" class="form-control" placeholder="Search by tags...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
                 <div class="dropdown dropdown-loggeduser">
                     <a href="" class="dropdown-link" data-toggle="dropdown">
                         <div class="avatar avatar-sm">
                             <img src="{{ asset('assets/avatar.png') }}" class="rounded-circle" alt="">
                         </div>
                     </a>
+                    
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-menu-header">
                             <div class="media align-items-center">
@@ -70,6 +82,7 @@
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="dropdown-menu-body">
                             <a href="" class="dropdown-item"
                                 onclick="document.querySelector('#logoutForm').submit(); return false;">

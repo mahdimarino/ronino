@@ -22,13 +22,14 @@ Orders List
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Order Id</th>
+                <th scope="col">Order</th>
+                <th scope="col">Date</th>
                 <th scope="col">name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone-no</th>
                 <th scope="col">Address</th>
                 <th scope="col">Total Price</th>
-                <th scope="col">Items</th>
+                <th scope="col">Notes</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -36,17 +37,16 @@ Orders List
             @foreach ($orders as $order)
             <tr>
                 <td scope="row"><a href="">{{
-                        $order->id }}</a></td>
+                        $order->order_number }}</a></td>
+                        <td>{{$order->created_at}}</td>
                 <td>{{ $order->name}}</td>
                 <td>{{ $order->email}}</td>
                 <td>{{ $order->mobile}}</td>
                 <td>{{ $order->address}}</td>
-                <td>{{ $order->total_amount}}</td>
-                <td>{{ $order->cart_items}}</td>
+                <td class="text-danger">{{ $order->total_amount}} AED</td>
+                <td>{{ $order->notes}}</td>
+                
 
-
-
-               
                 <td>
                      <a href="{{ route('dashboard.orders.show', ['id' => $order->id]) }}" class="btn btn-sm btn-primary">
                         <i class="fa fa-eye"></i> View Items

@@ -25,6 +25,28 @@ class ProductController extends Controller
         return view('dashboard.products.index', compact('products'));
     }
 
+    public function search(Request $request)
+    {
+        // Get the search query from the request
+        $query = $request->input('tags');
+
+        // Search for products where tags match the query
+        $products = Product::where('tags', 'LIKE', "%{$query}%")->get();
+
+        return view('dashboard.products.search', compact('products'));
+    }
+
+    public function tagged(Request $request)
+    {
+        // Get the tag from the request
+        $query = $request->input('tags');
+
+        // Search for products where tags match the query
+        $products = Product::where('tags', 'LIKE', "%{$query}%")->get();
+
+        return view('tagged', compact('products'));
+    }
+
     public function home()
     {
         return view('home');
@@ -68,11 +90,26 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
             'gsm_id' => 'required|exists:gsms,id',
             'description' => 'required|string',
+            'status' => 'required|string',
+            'tags' => 'nullable|string',
             // 'color_id' => 'required|exists:colors,id',
             // 'quantity'=> 'required|integer'
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
+        // Process tags
+        $tags = $request->input('tags');
+        if ($tags) {
+            // Split tags by comma, trim spaces, and remove duplicates
+            $tags = collect(explode(',', $tags))
+                ->map(function ($tag) {
+                    return trim($tag); // Trim spaces
+                })
+                ->filter() // Remove empty values
+                ->unique() // Remove duplicates
+                ->implode(','); // Convert back to comma-separated string
+        }
+
         // Create the product
         $product = Product::create([
             'title' => $validatedData['title'],
@@ -81,6 +118,8 @@ class ProductController extends Controller
             'category_id' => $validatedData['category_id'],
             'gsm_id' => $validatedData['gsm_id'],
             'description' => $validatedData['description'],
+            'status' => $validatedData['status'],
+            'tags' => $tags,
         ]);
         // Handle multiple image uploads
         if ($request->hasFile('images')) {
@@ -105,11 +144,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        $product = Product::findOrFail($id);
         return view('dashboard.products.show', compact('product'));
     }
+
     public function product_page(string $id)
     {
 

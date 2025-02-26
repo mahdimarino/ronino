@@ -39,28 +39,29 @@ Products
                         $product->id }}</a></td>
                 <td>
                     @if ($product->images->isNotEmpty())
-                   <a target="_blank" href="{{ $product->images->first()->url }}"> <img width="50" src="{{ $product->images->first()->url }}" alt="{{ $product->title }}"></a>
+                    <a target="_blank" href="{{ $product->images->first()->url }}"> <img width="50"
+                            src="{{ $product->images->first()->url }}" alt="{{ $product->title }}"></a>
                     @else
                     <span>No Image</span>
                     @endif
                 </td>
-                
-                
+
+
                 <td>{{ $product->title}}</td>
                 <td>{{ $product->product_code}}</td>
                 <td>{{ $product->gsm ? $product->gsm->name : 'N/A' }}</td>
                 <td>{{ $product->category->name}}</td>
                 <td>{{ $product->prix}}</td>
                 <td>
-                    
-                        @if ($product->tags)
-                        @foreach (explode(',', $product->tags) as $tag)
-                        <span class="tag">{{ $tag }} ,</span>
-                        @endforeach
-                        @else
-                        No tags available.
-                        @endif
-                    
+
+                    @if ($product->tags)
+                    @foreach (explode(',', $product->tags) as $tag)
+                    <span class="tag">{{ $tag }}</span>
+                    @endforeach
+                    @else
+                    No tags available.
+                    @endif
+
                 </td>
                 <td>
                     {{-- <a class="btn btn-sm btn-primary">

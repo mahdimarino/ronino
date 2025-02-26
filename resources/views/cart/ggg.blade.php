@@ -58,14 +58,8 @@
                                 </td>
                                 <td>
                                     <div class="input-box">
-                                        <input type="number" name="quantity" value="{{ $item['quantity'] }}"
-                                            class="quantity-input" data-price="{{ $item['prix'] }}">
-                                        {{-- <select data-id="100" class="quantity_cart" name="quantity_cart">
-                                            <option selected="" value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select> --}}
+                                        <input type="text" disabled  name="quantity" value="{{ $item['quantity'] }}"
+                                            class="quantity-input" data-price="{{ $item['prix'] }}">  <p></p>                                     
                                     </div>
                                 </td>
                                 <td>
@@ -96,7 +90,7 @@
                             <div class="heading-part mb-20">
                                 <h3 class="sub-heading">Estimate shipping and tax</h3>
                             </div>
-                            <form class="full">
+                            
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="input-box mb-20">
@@ -125,7 +119,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                           
                         </div>
                     </div>
                     <div class="col-md-6">

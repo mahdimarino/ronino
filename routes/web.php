@@ -60,9 +60,11 @@ Route::post('/dashboard/products', [ProductController::class, 'store'])->name('p
 Route::get('/dashboard/products/index', [ProductController::class, 'index'])->name('dashboard.products.index')->middleware('auth');
 Route::delete('dashboard/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy')->middleware('auth');
 Route::get('/dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('dashboard.products.edit')->middleware('auth');
+Route::get('/dashboard/products/search', [ProductController::class, 'search'])->name('dashboard.products.search')->middleware('auth');
 Route::put('/dashboard/products/{id}', [ProductController::class, 'update'])->name('dashboard.products.update')->middleware('auth');
+Route::get('/tagged', [ProductController::class, 'tagged'])->name('tagged');
 Route::get('/catalog', [ProductController::class, 'catalog'])->name('catalog');
-Route::get('/dashboard/products/{id}', [ProductController::class, 'show'])->name('dashboard.products.show');
+Route::get('/dashboard/products/{product}', [ProductController::class, 'show'])->name('dashboard.products.show');
 Route::get('products/{id}', [ProductController::class, 'product_page'])->name('products.product_page');
 
 

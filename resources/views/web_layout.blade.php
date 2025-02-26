@@ -14,12 +14,12 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/website/xpoge.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/website/responsive.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/website/glass-case.css')}}">
-    
-   
+
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142494086-2"></script>
-    
+
     <script>
         window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -41,8 +41,10 @@
             <div class="sidebar-align-container">
                 <div class="search-closer right-side"></div>
                 <div class="search-container">
-                    <form method="get" id="search-form">
-                        <input type="text" id="s" class="search-input" name="s" placeholder="Start Searching">
+
+                    <form action="{{ route('tagged') }}" method="GET" id="search-form">
+                        @csrf
+                        <input type="text" id="s" class="search-input" name="tags" placeholder="Start Searching">
                     </form>
                     <span>Search and Press Enter</span>
                 </div>
@@ -319,11 +321,12 @@
                                         </div>
                                     </li> --}}
                                     <li class="cart-icon">
-                                       <a href="{{ route('cart.index') }}">
-                                        <span>
-                                            <small id="cart-count" class="cart-notification">{{ $cartCount }}</small>
-                                        </span>
-                                    </a>
+                                        <a href="{{ route('cart.index') }}">
+                                            <span>
+                                                <small id="cart-count" class="cart-notification">{{ $cartCount
+                                                    }}</small>
+                                            </span>
+                                        </a>
                                         {{-- <div class="cart-dropdown header-link-dropdown">
                                             <ul class="cart-list link-dropdown-list">
                                                 <li> <a class="close-cart"><i class="fa fa-times-circle"></i></a>
@@ -513,7 +516,7 @@
     <script src="{{asset('js/website/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/website/owl.carousel.min.js')}}"></script>
     <script src="{{asset('js/website/modernizr.js')}}"></script>
-<script src="{{asset('js/website/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('js/website/jquery.magnific-popup.min.js')}}"></script>
 
     <script>
         $(document).ready( function () {
@@ -525,7 +528,7 @@
 	            });
 	        });
     </script>
-    
+
     <script src="{{asset('js/website/custom.js')}}"></script>
     {{-- <script>
         /* ------------ Newslater-popup JS Start ------------- */
@@ -537,6 +540,35 @@
         				});
         		    /* ------------ Newslater-popup JS End ------------- */
     </script> --}}
+    {{-- <script>
+        $(".search-menu .search-btn").on("click", function(){
+        if ( $(window).width() > 768 ){ $(".sidebar-search-wrap").addClass("open"); } }); 
+        $(".search-closer").on("click",
+            function(){ if ( $(window).width() < 768 ){ $(".sidebar-search-wrap").removeClass("open"); } });
+    </script> --}}
+    <script>
+        $('li.search-box').on('click', function(){
+        $('.sidebar-search-wrap').addClass('open').siblings().removeClass('open');
+        return false;
+        });
+        
+        /*Search-box-close-button*/
+        
+        $('.search-closer').on('click', function() {
+        var sidebar = $('.sidebar-navigation');
+        var nav_icon = $('.navbar-toggle i');
+        if(sidebar.hasClass('open')){
+        //sidebar.removeClass('open');
+        }else{
+        sidebar.addClass('open');
+        nav_icon.addClass('fa-search-close');
+        nav_icon.removeClass('fa-search-bars');
+        }
+        
+        $('.sidebar-search-wrap').removeClass('open');
+        return false;
+        });
+    </script>
 </body>
 
 </html>

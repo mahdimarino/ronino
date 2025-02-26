@@ -94,7 +94,7 @@ class CartController extends Controller
             'address' => 'required|string',
             'total_amount' => 'required|numeric',
             'order_number' => 'required|string',
-            'notes' => 'nullable|text',
+            'notes' => 'nullable|string',
         ]);
 
         // Get the cart from the session

@@ -40,6 +40,10 @@ class OrderController extends Controller
     public function show(string $id)
     {
         $order = Order::findOrFail($id);
+
+        // Decode the cart_items JSON string into an array
+        $order->cart_items = json_decode($order->cart_items, true);
+
         return view('dashboard.orders.show', compact('order'));
     }
 
