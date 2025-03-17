@@ -26,14 +26,14 @@
                     <input type="text" name="product_code" class="form-control" required>
                 </div>
 
-            </div>
+            </div><br>
             <div class="form-group col-7">
                 <label>Prix: <span class="tx-danger">*</span></label>
                 <div class="input-group">
                     <input type="number" name="prix" class="form-control" required>
                 </div>
             
-            </div>
+            </div><br>
             <div>
                 <label for="tags">Status</label>
                 <select name="status" id="status" required>
