@@ -83,7 +83,7 @@
     </div>
     <div class="main">
         <!-- Header start -->
-        <header id="header">
+        <header id="header" style="color: black !important">
             <div class="container position-r">
                 <div class="row m-0">
                     <div class="col-lg-3 col-md-4 col-4 p-0">
@@ -100,10 +100,10 @@
                                     class="fa fa-bars"></i>
                             </button>
                             <div class="overlay"></div>
-                            <div id="menu" class="navbar-collapse collapse">
+                            <div id="menu" class="navbar-collapse collapse" style="color: black">
                                 <ul class="nav navbar-nav">
                                     <li class="level">
-                                        <a href="{{route('home')}}" class="nav-link">Home</a>
+                                        <a href="{{route('home')}}" class="nav-link">Home ff</a>
                                     </li>
                                     <li class="level">
                                         <a href="{{route('catalog')}}" class="nav-link">Catalog</a>

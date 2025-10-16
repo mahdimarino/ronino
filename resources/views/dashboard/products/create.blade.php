@@ -40,13 +40,15 @@
                     <option value="store">store</option>
                     <option value="stock">stock</option>
             </div>
-            <div class="form-group col-7">
-                <label for="tags">Description</label>
-                <textarea  id="" cols="30" name="description" rows="10" required></textarea>
-            </div>
+            
             <div>
                 <label for="tags">Tags (comma-separated):</label>
                 <input type="text" name="tags" id="tags" placeholder="e.g., cars, evo, speed">
+            </div>
+
+            <div class="form-group col-7">
+                <label for="tags">Description</label>
+                <textarea  id="" cols="30" name="description" rows="10" required></textarea>
             </div>
         
         </div>

@@ -1,7 +1,6 @@
 @extends('web_layout')
 @section('content')
-
-{{-- <div class="row">
+    {{-- <div class="row">
     @foreach ($products as $product)
     <div class="col-md-3">
         <div class="card">
@@ -18,25 +17,25 @@
 </div> --}}
 
 
-<!-- Product list contant start -->
-<div class="contant">
-    <div id="banner-part" class="banner inner-banner">
-        <div class="container">
-            <div class="bread-crumb-main">
-                <h1 class="banner-title">Shop</h1>
-                <div class="breadcrumb">
-                    <ul class="inline">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Shop</li>
-                    </ul>
+    <!-- Product list contant start -->
+    <div class="contant">
+        <div id="banner-part" class="banner inner-banner">
+            <div class="container">
+                <div class="bread-crumb-main">
+                    <h1 class="banner-title">Shop</h1>
+                    <div class="breadcrumb">
+                        <ul class="inline">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Shop</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="ptb-100">
-        <div class="container">
-            <div class="row">
-                {{-- <div class="col-12 col-lg-4 col-xl-3">
+        <div class="ptb-100">
+            <div class="container">
+                <div class="row">
+                    {{-- <div class="col-12 col-lg-4 col-xl-3">
                     <div class="sidebar mb-md-30">
                         <div class="sidebar-category sidebar-default">
                             <div class="category-content">
@@ -284,116 +283,116 @@
                         </div>
                     </div>
                 </div> --}}
-                <div class="col-12 col-lg-12 col-xl-12">
-                    <div class="shorting mb-30">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="view">
-                                    <div class="list-types grid active "> <a href="shop.html">
-                                            <div class="grid-icon list-types-icon"></div>
-                                        </a> </div>
-                                    <div class="list-types list"> <a href="shop-list.html">
-                                            <div class="list-icon list-types-icon"></div>
-                                        </a> </div>
-                                </div>
-                                <div class="short-by float-right-md"> <span>Sort By</span>
-                                    <div class="select-item">
-                                        <select>
-                                            <option value="" selected="selected">Name (A to Z)</option>
-                                            <option value="">Name(Z - A)</option>
-                                            <option value="">price(low&gt;high)</option>
-                                            <option value="">price(high &gt; low)</option>
-                                            <option value="">rating(highest)</option>
-                                            <option value="">rating(lowest)</option>
-                                        </select>
+                    <div class="col-12 col-lg-12 col-xl-12">
+                        <div class="shorting mb-30">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="view">
+                                        <div class="list-types grid active "> <a href="shop.html">
+                                                <div class="grid-icon list-types-icon"></div>
+                                            </a> </div>
+                                        <div class="list-types list"> <a href="shop-list.html">
+                                                <div class="list-icon list-types-icon"></div>
+                                            </a> </div>
+                                    </div>
+                                    <div class="short-by float-right-md"> <span>Sort By</span>
+                                        <div class="select-item">
+                                            <select>
+                                                <option value="" selected="selected">Name (A to Z)</option>
+                                                <option value="">Name(Z - A)</option>
+                                                <option value="">price(low&gt;high)</option>
+                                                <option value="">price(high &gt; low)</option>
+                                                <option value="">rating(highest)</option>
+                                                <option value="">rating(lowest)</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="show-item right-side float-left-md"> <span>Show</span>
-                                    <div class="select-item">
-                                        <select>
-                                            <option value="" selected="selected">24</option>
-                                            <option value="">12</option>
-                                            <option value="">6</option>
-                                        </select>
+                                <div class="col-lg-6">
+                                    <div class="show-item right-side float-left-md"> <span>Show</span>
+                                        <div class="select-item">
+                                            <select>
+                                                <option value="" selected="selected">24</option>
+                                                <option value="">12</option>
+                                                <option value="">6</option>
+                                            </select>
+                                        </div>
+                                        <span>Per Page</span>
+                                        <div class="compare float-right-sm"> <a href="#" class="btn btn-color">Compare
+                                                (0)</a> </div>
                                     </div>
-                                    <span>Per Page</span>
-                                    <div class="compare float-right-sm"> <a href="#" class="btn btn-color">Compare
-                                            (0)</a> </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-section grid-view">
-                        <div class="row">
-                            @foreach ($products as $product)
-                            <div class="col-lg-4 col-md-4 col-6">
-                                <div class="product-item">
-                                    <div class="product-image">
-                                        <div class="sale-label"><span>Sale</span></div>
-                                        <a href="{{ route('products.product_page', ['id' => $product->id]) }}">
-                                            {{-- <a
-                                                href="{{ route('dashboard.products.show', ['id' => $product->id]) }}">
-                                                --}}
-                                                <img src="{{ $product->images->first()->url }}" alt="Xpoge">
-                                            </a>
-                                    </div>
-                                    <div class="product-details-outer">
-                                        <div class="product-details">
-                                            <div class="product-title">
-                                                <a href="product-page.html">{{ $product->title }}</a>
+                        <div class="product-section grid-view">
+                            <div class="row">
+                                @foreach ($products as $product)
+                                    <div class="col-lg-3 col-md-3 col-6">
+                                        <div class="product-item">
+                                            <div class="product-image">
+                                                <div class="sale-label"><span>Sale</span></div>
+                                                <a href="{{ route('products.product_page', ['id' => $product->id]) }}">
+                                                    <img style="height: 400px; width: 100%; object-fit: cover; border-radius: 8px;"
+                                                        src="{{ $product->images->first()->url }}"
+                                                        alt="{{ $product->title }}">
+                                                </a>
                                             </div>
-                                            <div class="price-box">
-                                                <span class="price">{{ $product->prix ?? 'Soon' }} AED</span>
-                                                {{-- @php
+                                            <div class="product-details-outer">
+                                                <div class="product-details">
+                                                    <div class="product-title">
+                                                        <a href="product-page.html">{{ $product->title }}</a>
+                                                    </div>
+                                                    <div class="price-box">
+                                                        <span class="price">{{ $product->prix ?? 'Soon' }} AED</span>
+                                                        {{-- @php
                                                 $firstProduct = $products->firstWhere('id', $product->id);
                                                 $price = $firstProduct ? $firstProduct->price : 'Soon';
                                                 @endphp --}}
-                                                <del class="price old-price">{{ $product->prix * 2 }} AED</del>
+                                                        <del class="price old-price">{{ $product->prix * 2 }} AED</del>
+                                                    </div>
+                                                </div>
+                                                <div class="product-details-btn">
+                                                    <ul>
+                                                        <li class="icon cart-icon">
+                                                            <a href="cart.html">
+                                                                <span></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="icon wishlist-icon">
+                                                            <a href="wishlist.html">
+                                                                <span></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="icon compare-icon">
+                                                            <a href="#">
+                                                                <span></span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="product-details-btn">
-                                            <ul>
-                                                <li class="icon cart-icon">
-                                                    <a href="cart.html">
-                                                        <span></span>
-                                                    </a>
-                                                </li>
-                                                <li class="icon wishlist-icon">
-                                                    <a href="wishlist.html">
-                                                        <span></span>
-                                                    </a>
-                                                </li>
-                                                <li class="icon compare-icon">
-                                                    <a href="#">
-                                                        <span></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="shorting center-md">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="pagination-bar">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="shorting center-md">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="pagination-bar">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="show-item right-side float-none-md">
-                                    <span class="float-none-md d-block">Showing 1 to 15 of 15 (1 Pages)</span>
+                                <div class="col-lg-6">
+                                    <div class="show-item right-side float-none-md">
+                                        <span class="float-none-md d-block">Showing 1 to 15 of 15 (1 Pages)</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -402,12 +401,5 @@
             </div>
         </div>
     </div>
-</div>
-<!-- Product list contant end -->
-
-
-
-
-
-
+    <!-- Product list contant end -->
 @endsection

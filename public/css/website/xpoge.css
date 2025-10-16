@@ -913,7 +913,7 @@ table.border {
 // HEADER  //----------------------------
 _______________________________________________________*/
 header {
-	background: #fff;
+	background: black;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -1002,7 +1002,7 @@ header.header-fixed {
 
 .header-right-link ul li.cart-icon>a span small.cart-notification {
 	background: #f22a59;
-	color: #ffffff;
+	color: black;
 	border-radius: 50%;
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
@@ -1165,7 +1165,7 @@ header.header-fixed {
 	padding: 14px 0px !important;
 	display: inline-block;
 	font-weight: 400;
-	color: #333;
+	color: white;
 	font-size: 16px;
 	position: relative;
 }
